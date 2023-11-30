@@ -106,6 +106,10 @@ $book2->setAuthor($author2);
     ?>
 
     <p>
+        <img src="book-author.png" title="Class Diagram" title="Class Diagram">
+    </p>
+    
+    <p>
         <a target="git" href="https://github.com/spijkerbak/author-book/">Source code op github</a>
     </p>
 </body>
