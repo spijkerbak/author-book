@@ -44,17 +44,17 @@ class Author
         $this->books[] = $book;
     }
 
-    function __toString() : string
+    function __toString(): string
     {
         return $this->name;
     }
 
-    function getBooks() : array
+    function getBooks(): array
     {
         return $this->books;
     }
 
-    function showBooks() : void
+    function showBooks(): void
     {
         foreach ($this->books as $book) {
             echo $book;
@@ -75,13 +75,39 @@ $book4->setAuthor($henk);
 $book1->setAuthor($henk);
 $book2->setAuthor($author2);
 
-echo "<h2>Show books</h2>";
+?>
+<!doctype html>
+<html lang="nl">
 
-$henk->showBooks();
+<head>
+    <title>Books</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
 
-echo "<h2>Get books</h2>";
-foreach ($henk->getBooks() as $book) {
-    echo $book;
-    echo "<br>";
-}
+<body>
 
+    <h2>Show books</h2>
+    <?php
+    $henk->showBooks();
+    ?>
+
+    <h2>Get books</h2>
+    <?php
+    foreach ($henk->getBooks() as $book) {
+        echo $book;
+        echo "<br>";
+    }
+    ?>
+
+    <p>
+        <a target="git" href="https://github.com/spijkerbak/author-book/">Source code op github</a>
+    </p>
+</body>
+
+</html>
