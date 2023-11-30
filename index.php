@@ -5,9 +5,9 @@ ini_set('display_errors', 'on');
 
 class Book
 {
-    private $title;
-    private $isbn;
-    private $author;
+    private string $title;
+    private string $isbn;
+    private Author $author;
 
     function __construct(string $title, string $isbn)
     {
@@ -30,8 +30,8 @@ class Book
 
 class Author
 {
-    private $name;
-    private $books; // array of author's books
+    private string $name;
+    private array $books; // array of author's books
 
     function __construct(string $name)
     {
@@ -44,17 +44,17 @@ class Author
         $this->books[] = $book;
     }
 
-    function __toString()
+    function __toString() : string
     {
         return $this->name;
     }
 
-    function getBooks()
+    function getBooks() : array
     {
         return $this->books;
     }
 
-    function showBooks()
+    function showBooks() : void
     {
         foreach ($this->books as $book) {
             echo $book;
@@ -65,8 +65,8 @@ class Author
 }
 
 $book1 = new Book("Praktisch Niet", "012938019283");
-$book2 = new Book("Bijna goed", "212938019283");
-$book4 = new Book("Niemand", "232938019283");
+$book2 = new Book("Bijna Goed", "212938019283");
+$book4 = new Book("Niemand!", "232938019283");
 
 $henk = new Author("Henk");
 $author2 = new Author("Ingrid");
