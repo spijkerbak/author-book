@@ -3,50 +3,60 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
 
-class Book {
+class Book
+{
     private $title;
     private $isbn;
     private $author;
 
-    function __construct(string $title, string $isbn) {
+    function __construct(string $title, string $isbn)
+    {
         $this->title = $title;
         $this->isbn = $isbn;
     }
 
-    function setAuthor(Author $author) {
+    function setAuthor(Author $author)
+    {
         $this->author = $author;
         $author->addBook($this);
     }
 
-    function __toString() {
+    function __toString()
+    {
         return $this->author . ": " . $this->title;
     }
 
 }
 
-class Author {
+class Author
+{
     private $name;
-    private $books;
+    private $books; // array of author's books
 
-    function __construct(string $name) {
+    function __construct(string $name)
+    {
         $this->name = $name;
         $this->books = [];
     }
 
-    function addBook(Book $book) {
+    function addBook(Book $book)
+    {
         $this->books[] = $book;
     }
 
-    function __toString() {
+    function __toString()
+    {
         return $this->name;
     }
 
-    function getBooks() {
+    function getBooks()
+    {
         return $this->books;
     }
 
-    function showBooks() {
-        foreach($this->books as $book) {
+    function showBooks()
+    {
+        foreach ($this->books as $book) {
             echo $book;
             echo "<br>";
         }
@@ -65,14 +75,12 @@ $book4->setAuthor($henk);
 $book1->setAuthor($henk);
 $book2->setAuthor($author2);
 
-// echo $book1;
-// echo "<br>";
-// echo $book2;
+echo "<h2>Show books</h2>";
 
-//$henk->showBooks();
+$henk->showBooks();
 
-
-foreach($henk->getBooks() as $book) {
+echo "<h2>Get books</h2>";
+foreach ($henk->getBooks() as $book) {
     echo $book;
     echo "<br>";
 }
